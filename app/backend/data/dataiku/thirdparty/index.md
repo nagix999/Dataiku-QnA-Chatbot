@@ -1,0 +1,25 @@
+Third\-party acknowledgements[¶](#third-party-acknowledgements "Permalink to this heading")
+===========================================================================================
+
+
+
+* [DSS](dss.html)
+	+ [Java libraries](dss.html#java-libraries)
+	+ [Python libraries](dss.html#python-libraries)
+	+ [Scala libraries](dss.html#scala-libraries)
+	+ [Native libraries](dss.html#native-libraries)
+	+ [R libraries](dss.html#r-libraries)
+	+ [Frontend libraries](dss.html#frontend-libraries)
+	+ [Data](dss.html#data)
+* [Fleet Manager](fm.html)
+	+ [Java libraries](fm.html#java-libraries)
+	+ [Python libraries](fm.html#python-libraries)
+	+ [Frontend libraries](fm.html#frontend-libraries)
+* [Mac version only](launcher/mac.html)
+	+ [Mac app launcher](launcher/mac.html#mac-app-launcher)
+	+ [R integration (R 3\.6\)](launcher/mac.html#r-integration-r-3-6)
+	+ [Additional DSS dependencies](launcher/mac.html#additional-dss-dependencies)
+* [Dataiku Cloud](thirdparty-cloud.html)
+	+ [Java libraries](thirdparty-cloud.html#java-libraries)
+	+ [Python libraries](thirdparty-cloud.html#python-libraries)
+* [AI Services Third Party AI Providers](ai-providers.html)

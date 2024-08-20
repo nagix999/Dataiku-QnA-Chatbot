@@ -1,0 +1,26 @@
+Operations reference[¶](#operations-reference "Permalink to this heading")
+==========================================================================
+
+
+
+* [Using the apinode\-admin tool](cli-tool.html)
+	+ [Commands to manage the list of services](cli-tool.html#commands-to-manage-the-list-of-services)
+	+ [Commands to manage the on\-disk generations of a service](cli-tool.html#commands-to-manage-the-on-disk-generations-of-a-service)
+	+ [Commands to manage the activation of generations](cli-tool.html#commands-to-manage-the-activation-of-generations)
+	+ [Commands for administration API keys management](cli-tool.html#commands-for-administration-api-keys-management)
+	+ [Other commands](cli-tool.html#other-commands)
+* [High availability and scalability](ha-deployment.html)
+	+ [HA deployment](ha-deployment.html#ha-deployment)
+		- [Load balancer](ha-deployment.html#load-balancer)
+		- [Client\-side dispatch](ha-deployment.html#client-side-dispatch)
+	+ [Zero\-downtime generation update](ha-deployment.html#zero-downtime-generation-update)
+	+ [Handling software updates](ha-deployment.html#handling-software-updates)
+* [Logging and auditing](logging-audit.html)
+	+ [How to configure audit and query logging](logging-audit.html#how-to-configure-audit-and-query-logging)
+	+ [How to turn on query logging](logging-audit.html#how-to-turn-on-query-logging)
+	+ [Logging queries to Kafka](logging-audit.html#logging-queries-to-kafka)
+* [Health monitoring](health-monitoring.html)
+	+ [Global isAlive probe](health-monitoring.html#global-isalive-probe)
+		- [isAlive API](health-monitoring.html#isalive-api)
+		- [Forcing the node as not alive](health-monitoring.html#forcing-the-node-as-not-alive)
+	+ [Monitoring the status of services](health-monitoring.html#monitoring-the-status-of-services)

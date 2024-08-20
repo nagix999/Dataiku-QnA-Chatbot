@@ -1,0 +1,42 @@
+Code notebooks[¶](#code-notebooks "Permalink to this heading")
+==============================================================
+
+
+In addition to [the Flow](../flow/index.html) where you perform the “production” work of your project with both [visual recipes](../other_recipes/index.html) and [code recipes](../code_recipes/index.html), and visual analysis where you can visually perform [data preparation](../preparation/index.html) and [machine learning](../machine-learning/index.html), DSS features code notebooks for exploratory / experimental work using code.
+
+
+
+* [SQL notebook](sql-notebook.html)
+	+ [Creating a SQL notebook](sql-notebook.html#creating-a-sql-notebook)
+	+ [Cells and history](sql-notebook.html#cells-and-history)
+* [Python notebooks](python.html)
+	+ [Creating a Python notebook](python.html#creating-a-python-notebook)
+		- [From a dataset](python.html#from-a-dataset)
+		- [From the notebooks list](python.html#from-the-notebooks-list)
+	+ [Using the Python notebook](python.html#using-the-python-notebook)
+		- [Available APIs](python.html#available-apis)
+		- [Spark](python.html#spark)
+		- [Unloading](python.html#unloading)
+* [Predefined notebooks](predefined-notebooks.html)
+	+ [Creating a notebook from a prebuilt template](predefined-notebooks.html#creating-a-notebook-from-a-prebuilt-template)
+	+ [Creating your own prebuilt templates](predefined-notebooks.html#creating-your-own-prebuilt-templates)
+* [Containerized notebooks](containerized-notebooks.html)
+	+ [Configuring containers for notebooks](containerized-notebooks.html#configuring-containers-for-notebooks)
+		- [Builtin environment](containerized-notebooks.html#builtin-environment)
+		- [Code envs](containerized-notebooks.html#code-envs)
+	+ [Running a notebook in a container](containerized-notebooks.html#running-a-notebook-in-a-container)
+		- [Dependencies](containerized-notebooks.html#dependencies)
+		- [Writing files from notebook code](containerized-notebooks.html#writing-files-from-notebook-code)
+* [Installing Jupyter Extensions](jupyter-nbextensions.html)
+	+ [List available extensions](jupyter-nbextensions.html#list-available-extensions)
+	+ [List enabled extensions](jupyter-nbextensions.html#list-enabled-extensions)
+	+ [Enable an extension](jupyter-nbextensions.html#enable-an-extension)
+	+ [Disable an extension](jupyter-nbextensions.html#disable-an-extension)
+	+ [Customize an extension](jupyter-nbextensions.html#customize-an-extension)
+* [Search notebook](search-notebook.html)
+	+ [Creating a Search notebook](search-notebook.html#creating-a-search-notebook)
+	+ [Queries and search scope](search-notebook.html#queries-and-search-scope)
+		- [Indices\-based search scope](search-notebook.html#indices-based-search-scope)
+		- [Index\-pattern\-based search scope](search-notebook.html#index-pattern-based-search-scope)
+		- [Datasets\-based search scope](search-notebook.html#datasets-based-search-scope)
+	+ [Exporting a search query to a dataset](search-notebook.html#exporting-a-search-query-to-a-dataset)
