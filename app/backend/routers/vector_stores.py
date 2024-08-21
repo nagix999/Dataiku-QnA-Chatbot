@@ -21,3 +21,10 @@ async def create_vector_store(files, context: dict=Depends(get_context)):
     context["index"] = index
 
     return {"message": "success"}
+
+
+@router.get("/{vector_store_id}", status_code=status.HTTP_200_OK)
+async def get_nodes(vector_store_id, context: dict=Depends(get_context)):
+    embedding_vectors = context["vector_store"][vector_store_id]
+
+    return {"embedding_vectors": embedding_vectors}
