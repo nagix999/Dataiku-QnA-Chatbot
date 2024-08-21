@@ -11,7 +11,7 @@ router = APIRouter(prefix="/files")
 @router.get("", response_model=list[File])
 async def get_all_files():
     files = [File(**{
-        "filename": "\\".join(file.split("\\")[1:]), 
+        "filename": file, 
         "extension": file.split(".")[-1],
         "size": os.path.getsize(file),
         "created_at": os.path.getctime(file),
@@ -23,7 +23,7 @@ async def get_all_files():
 
 @router.get("/contents")
 async def get_file_content(filename: str):
-    file_path = "data" + "\\" + filename
+    file_path = filename
 
     with open(file_path, "r", encoding="utf-8") as f:
         contents = f.read()
