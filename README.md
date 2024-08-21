@@ -1,9 +1,9 @@
 # Dataiku Q&A Chatbot
 
-Main page
+**Main page**
 ![alt text](./images/screenshot1_v0.1.png)
 
-Total Process
+**Total Process**
 ![alt text](./images/screenshot2_v0.1.png)
 
 ## Introduction
