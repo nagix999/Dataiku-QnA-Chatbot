@@ -3,8 +3,10 @@ import axios from "axios";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
-const InputFilesDescription = () => {
+const InputFilesDescription = ({ node }) => {
     const gridRef = useRef(null);
     const [inputFiles, setInputFiles] = useState([]);
     const [columnDefs, setColumnDefs] = useState([
@@ -42,7 +44,10 @@ const InputFilesDescription = () => {
     }, []);
 
     return (
-        <div className="h-full w-full flex flex-col">
+        <div className="h-full w-full flex flex-col my-4">
+            <div className="mb-2 pt-4">
+                <h3 className="font-semibold text-xl">File Table</h3>
+            </div>
             <div className="ag-theme-quartz h-[400px]">
                 <AgGridReact
                     ref={gridRef}
@@ -53,11 +58,14 @@ const InputFilesDescription = () => {
                 />
             </div>
             <div className="mt-4">
-                <h3 className="mb-3 font-semibold text-[1.125rem] text-black">
-                    contents
-                </h3>
-                <div className="h-[300px] w-full rounded-md border-[1px] border-gray-400 p-6 overflow-y-auto">
-                    <p className="whitespace-pre-wrap">{fileContents}</p>
+                <div className="mb-2 pt-4">
+                    <h3 className="font-semibold text-xl">File Contents</h3>
+                </div>
+                <div className="h-[400px] w-full rounded-md border-[1px] border-gray-400 p-6 overflow-y-auto">
+                    <Markdown remarkPlugins={[remarkGfm]}>
+                        {fileContents}
+                    </Markdown>
+                    {/* <p className="whitespace-pre-wrap">{fileContents}</p> */}
                 </div>
             </div>
         </div>

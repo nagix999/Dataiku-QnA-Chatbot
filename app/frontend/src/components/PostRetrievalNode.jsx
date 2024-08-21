@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { Handle, Position } from "@xyflow/react";
 
-const RetrievalNode = ({ data }) => {
+const PostRetrievalNode = ({ data }) => {
     return (
         <>
             <Handle
@@ -10,23 +10,17 @@ const RetrievalNode = ({ data }) => {
                 position={Position.Left}
                 isConnectable={true}
             />
-            <Handle
-                type="target"
-                id="top"
-                position={Position.Top}
-                isConnectable={true}
-            />
             <div className="react-flow__node-default cursor-pointer">
                 <span>{data.label}</span>
             </div>
             <Handle
                 type="source"
-                id="right"
-                position={Position.Right}
+                id="bottom"
+                position={Position.Bottom}
                 isConnectable={true}
             />
         </>
     );
 };
 
-export default memo(RetrievalNode);
+export default memo(PostRetrievalNode);
