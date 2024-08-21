@@ -3,7 +3,7 @@
 **Main page**
 ![alt text](./images/screenshot1_v0.1.png)
 
-**Total Process**
+**End-to-End Process**
 ![alt text](./images/screenshot2_v0.1.png)
 
 ## Introduction
