@@ -1,11 +1,24 @@
-import React, { memo } from "react";
-import { Handle, Position } from "@xyflow/react";
+import React, { memo, useState } from "react";
+import {
+    Handle,
+    Position,
+    useHandleConnections,
+    useNodesData,
+} from "@xyflow/react";
+import {
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+} from "@/components/ui/sheet";
 
 const EmbeddingNode = ({ data }) => {
     return (
         <>
             <Handle
                 type="target"
+                id="left"
                 position={Position.Left}
                 isConnectable={true}
             />
@@ -14,6 +27,7 @@ const EmbeddingNode = ({ data }) => {
             </div>
             <Handle
                 type="source"
+                id="right"
                 position={Position.Right}
                 isConnectable={true}
             />

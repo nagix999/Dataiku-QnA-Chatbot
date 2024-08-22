@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import axios from "axios";
 
 const EmbeddingDescription = ({ node }) => {
+    const [settingProps, setSettingProps] = useState({});
+
+    const fetchSettings = useCallback(async () => {
+        const response = await axios.get(
+            `http://localhost:8000/api/embeddings/${node.id}/settings`
+        );
+
+        if (response.status === 200) {
+            setSettingProps(response.data);
+        }
+    }, []);
+
+    const runEmbeddingHandler = useCallback(async () => {
+        console.log(node);
+        // const response = await axios.post("http://localhost:8000/vector_stores/{}")
+    }, []);
+
+    useEffect(() => {
+        fetchSettings();
+    }, []);
+
     return (
         <>
             <div className="my-4">
@@ -17,7 +39,7 @@ const EmbeddingDescription = ({ node }) => {
                         </Label>
                         <Input
                             className="text-base"
-                            value={node.data.params.splitMethod}
+                            // value={node.data.params.splitMethod}
                             readOnly
                         ></Input>
                     </div>
@@ -27,7 +49,7 @@ const EmbeddingDescription = ({ node }) => {
                         </Label>
                         <Input
                             className="text-base"
-                            value={node.data.params.chunkSize}
+                            // value={node.data.params.chunkSize}
                             readOnly
                         ></Input>
                     </div>
@@ -37,7 +59,7 @@ const EmbeddingDescription = ({ node }) => {
                         </Label>
                         <Input
                             className="text-base"
-                            value={node.data.params.chunkOverlap}
+                            // value={node.data.params.chunkOverlap}
                             readOnly
                         ></Input>
                     </div>
@@ -56,7 +78,7 @@ const EmbeddingDescription = ({ node }) => {
                         </Label>
                         <Input
                             className="text-base"
-                            value={node.data.params.embeddingModel}
+                            // value={node.data.params.embeddingModel}
                             readOnly
                         ></Input>
                     </div>
@@ -64,13 +86,17 @@ const EmbeddingDescription = ({ node }) => {
                         <Label className="w-full text-lg mb-2">Dimension</Label>
                         <Input
                             className="text-base"
-                            value={node.data.params.dimension}
+                            // value={node.data.params.dimension}
                             readOnly
                         ></Input>
                     </div>
                 </div>
             </div>
-            <Button variant="outline" className="w-full" disabled>
+            <Button
+                variant="outline"
+                className="w-full"
+                onClick={runEmbeddingHandler}
+            >
                 Run
             </Button>
         </>

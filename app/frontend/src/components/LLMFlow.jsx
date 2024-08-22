@@ -30,6 +30,7 @@ import VectorStoreDescription from "./VectorStoreDescription";
 import axios from "axios";
 import PreRetrievalNode from "./PreRetrievalNode";
 import PostRetrievalNode from "./PostRetrievalNode";
+import { Description } from "./Description";
 
 const nodeTypes = {
     InputFilesNode,
@@ -278,14 +279,6 @@ const initialEdges = [
         markerEnd: markerEnd,
     },
     {
-        id: "e9-10",
-        source: "9",
-        target: "10",
-        animated: true,
-        targetHandle: "left",
-        markerEnd: markerEnd,
-    },
-    {
         id: "e10-8",
         source: "10",
         target: "8",
@@ -321,8 +314,8 @@ const initialEdges = [
 ];
 
 export const LLMFlow = () => {
-    const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-    const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+    const [nodes, setNodes, onNodesChange] = useNodesState([]);
+    const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
     const [selectedNode, setSelectedNode] = useState({});
     const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -331,7 +324,46 @@ export const LLMFlow = () => {
         if (!isSheetOpen) {
             setIsSheetOpen(true);
         }
+        console.log(node);
         setSelectedNode(node);
+    }, []);
+
+    const fectchFlow = useCallback(async () => {
+        const response = await axios.get("http://localhost:8000/api/flows");
+
+        if (response.status === 200) {
+            const nodes = response.data.nodes;
+            setNodes(
+                nodes.map((node) => ({
+                    id: node.nodeId,
+                    type: node.nodeType,
+                    data: {
+                        label: node.label,
+                    },
+                    position: {
+                        x: node.positionX,
+                        y: node.positionY,
+                    },
+                }))
+            );
+
+            const edges = response.data.edges;
+            setEdges(
+                edges.map((edge) => ({
+                    id: edge.edgeId,
+                    source: edge.sourceId,
+                    target: edge.targetId,
+                    sourceHandle: edge.sourceHandle,
+                    targetHandle: edge.targetHandle,
+                    animated: true,
+                    markerEnd: markerEnd,
+                }))
+            );
+        }
+    }, []);
+
+    useEffect(() => {
+        fectchFlow();
     }, []);
 
     return (
@@ -353,13 +385,12 @@ export const LLMFlow = () => {
                 <SheetContent>
                     <SheetHeader>
                         <SheetTitle>{selectedNode?.data?.label}</SheetTitle>
-                        {/* <SheetDescription> */}
-                        {selectedNode?.data?.description && (
+                        <Description node={selectedNode} />
+                        {/* {selectedNode?.data?.description && (
                             <selectedNode.data.description
                                 node={selectedNode}
                             />
-                        )}
-                        {/* </SheetDescription> */}
+                        )} */}
                     </SheetHeader>
                 </SheetContent>
             </Sheet>
