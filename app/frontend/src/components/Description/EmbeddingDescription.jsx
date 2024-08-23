@@ -15,16 +15,16 @@ const EmbeddingDescription = ({ node }) => {
         if (response.status === 200) {
             setSettingProps(response.data);
         }
-    }, []);
+    }, [node]);
 
     const runEmbeddingHandler = useCallback(async () => {
         console.log(node);
         // const response = await axios.post("http://localhost:8000/vector_stores/{}")
-    }, []);
+    }, [node]);
 
     useEffect(() => {
         fetchSettings();
-    }, []);
+    }, [node]);
 
     return (
         <>
