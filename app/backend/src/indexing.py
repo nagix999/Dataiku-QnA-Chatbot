@@ -22,13 +22,13 @@ def load_directory(input_dir):
     return docs
 
 
-def split(docs, indexing_strategy):
+def split(docs, indexing_strategy, **params):
     if indexing_strategy == "SentenceSplitter":
-        indexing = SentenceSplitter(chunk_size=512, chunk_overlap=0)
+        indexing = SentenceSplitter(**params)
     elif indexing_strategy == "SementicSplitter":
-        indexing = SemanticSplitterNodeParser(buffer_size=1, embed_model=OpenAIEmbedding())
-    elif indexing_strategy == "SentenceWindow":
-        indexing = SentenceWindowNodeParser(window_size=3)
+        indexing = SemanticSplitterNodeParser(**params)
+    elif indexing_strategy == "SentenceWindowNodeParser":
+        indexing = SentenceWindowNodeParser(**params)
     else:
         raise ValueError()
     
